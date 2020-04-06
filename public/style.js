@@ -22,7 +22,7 @@ btn.click(()=>{
     $.ajax(settings).done(function (response) {
        if(response.message!="OK"){console.log("country not found")}
        else{
-        console.log(response.data.covid19Stats)
+        
        tableh.children().remove()
        tableb.children().remove()
 
