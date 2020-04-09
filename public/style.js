@@ -6,7 +6,41 @@ $(()=>{
   var tableb=$('#tbody')
   $('#countrydetails').hide()
 //india
+var settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://corona-virus-world-and-india-data.p.rapidapi.com/api_india",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "corona-virus-world-and-india-data.p.rapidapi.com",
+		"x-rapidapi-key": "178daf1067msh9a869b74211b0b1p16b4f8jsna837fd521321"
+	}
+}
 
+$.ajax(settings).done(function (response) {
+ 
+  const states=Object.entries(response.state_wise)
+    states.sort((a,b)=>{
+     return a[0].localeCompare(b[0])
+
+    })
+
+for(val of states)
+{
+  $('#india').append($('<tr>').append($('<td>').text(val[0]))
+  .append($('<td>').text(val[1].confirmed))
+  .append($('<td>').text(val[1].active))
+  .append($('<td>').text(val[1].deaths))
+  .append($('<td>').text(val[1].recovered))
+
+
+
+
+  )
+
+}
+
+});
 //india ends
 
  //world 
