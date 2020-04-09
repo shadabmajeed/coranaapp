@@ -29,8 +29,12 @@ $(()=>{
 btn.click(()=>{
   var conname=country.val()
       var val=conname.charAt(0).toUpperCase()+conname.substring(1).toLowerCase();
+      
   x=$('#countrydetails')
   flag=false;
+  if(val=="Usa"||val=="America"){val="USA";}
+  if(val=="Uk"||val=="England"){val="UK"}
+ 
   mydata.response.find((found)=>{
     if (found.country==val)
     {
