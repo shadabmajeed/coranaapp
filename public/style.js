@@ -5,6 +5,7 @@ $(()=>{
   var tableh=$('#thead')
   var tableb=$('#tbody')
   $('#countrydetails').hide()
+
 //india
 var settings = {
 	"async": true,
@@ -25,20 +26,46 @@ $.ajax(settings).done(function (response) {
 
     })
 
+   
 for(val of states)
-{
-  $('#india').append($('<tr>').append($('<td>').text(val[0]))
-  .append($('<td>').text(val[1].confirmed))
-  .append($('<td>').text(val[1].active))
-  .append($('<td>').text(val[1].deaths))
-  .append($('<td>').text(val[1].recovered))
+{  
+  if(val[1].confirmed!=0){
+   $('#india').append($('<tr>').append($('<td>').text(val[0]))
+    .append($('<td>').text(val[1].confirmed))
+    .append($('<td>').text(val[1].active))
+    .append($('<td>').text(val[1].deaths))
+    .append($('<td>').text(val[1].recovered))
+    .attr({"class":"state"})
+  
+  
+  
+  
+    )
+  }
+  
+
+  if(val[1].district!=undefined) {districts=Object.entries(val[1].district);
+    $('#india').append(x=$('<table>').append($('<thead>').attr({"class":"p-3 mb-2 bg-warning text-dark"}).append($('<tr>').append($('<th>').text("DISTRICT")).append($('<th>').text('CONFIRMED')))).css({"margin":"20%"}).append(x=$('<tbody>')).attr({"class":"districts"}))
+   
+   for(discs of districts )
+   {
+   x.append($('<tr>').append($('<td>').text(discs[0])).append($('<td>').text(discs[1].confirmed)))
 
 
-
-
-  )
+   }
+  
+  
+  }
+  
 
 }
+$('.districts').hide()
+$('.state').click((event)=>{
+    $(event.target).parent().next().toggle()
+ 
+  
+  })
+
 
 });
 //india ends
