@@ -137,8 +137,32 @@ country.focus(()=>{
 
 
 
-
     mydata=data;
+     india=mydata.response.find((found)=>{
+     if(found.country=="India")
+     return found;
+
+     })
+     x=india.time.split('T')
+     day=x[0]
+
+     y=x[1].split(':')
+     time=y[0]+":"+y[1]
+     
+     $('#time').html(
+       `${day}<br>
+       ${time}
+       
+       `
+     )
+
+     $('#indiadetails').html(
+      `<b>TOTAL CASES: </b><span class="badge badge-pill badge-primary">${india.cases.total} </span><br> 
+      <b> TOTAL DEATHS: </b><span class="badge badge-pill badge-primary">${india.deaths.total} </span><br> 
+      <b> CASES TODAY: </b><span class="badge badge-pill badge-danger">${india.cases.new} </span><br> 
+      <b>DEATHS TODAY: </b><span class="badge badge-pill badge-danger">${india.deaths.new} </span><br> 
+      `  
+    )
     tableh.children().remove()
     tableb.children().remove()
 
@@ -151,7 +175,18 @@ country.focus(()=>{
     
    const len=mydata.response.length;
   for(i=0;i<len;i++)
-  {   if(mydata.response[i].country=="World"||mydata.response[i].country=="All"||mydata.response[i].country.charAt(0)=="-"){ continue;}
+  {   if(mydata.response[i].country=="World"
+         ||mydata.response[i].country=="All"
+         ||mydata.response[i].country.charAt(0)=="-"
+         ||mydata.response[i].country=="Asia"
+         ||mydata.response[i].country=="Europe"
+||mydata.response[i].country=="North-America"
+||mydata.response[i].country=="South-America"
+
+             
+
+
+        ){ continue;}
       arraydata.push(mydata.response[i])
       tableb.append($('<tr>').append($('<td>').text(mydata.response[i].country).attr({"class":"table-info"})).append($('<td>').text(mydata.response[i].cases.total)).append($('<td>').text(mydata.response[i].cases.active)).append($('<td>').text(mydata.response[i].deaths.total)).append($('<td>').text(mydata.response[i].cases.new).attr({"class":"table-danger"})).append($('<td>').text(mydata.response[i].deaths.new)).append($('<td>').text(mydata.response[i].cases.recovered).attr({"class":"table-success"})))
       
