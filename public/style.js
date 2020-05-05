@@ -163,11 +163,7 @@ country.focus(()=>{
       <b>DEATHS TODAY: </b><br><span class="badge badge-pill badge-danger badges" style="width:100px;font-size:25px">${india.deaths.new} </span><br> 
       `  
     )
-    $('.badges').counterUp({
-     delay:5,time:300
-
-
-    })
+   
     tableh.children().remove()
     tableb.children().remove()
 
