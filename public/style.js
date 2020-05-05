@@ -164,7 +164,7 @@ country.focus(()=>{
       `  
     )
     $('.badges').counterUp({
-     delay:20,time:1300
+     delay:5,time:300
 
 
     })
