@@ -1,5 +1,5 @@
 $(()=>{
-
+  
   var country=$('#country');
   var btn=$('#btn');
   var tableh=$('#thead')
@@ -157,12 +157,17 @@ country.focus(()=>{
      )
 
      $('#indiadetails').html(
-      `<b>TOTAL CASES: </b><span class="badge badge-pill badge-primary">${india.cases.total} </span><br> 
-      <b> TOTAL DEATHS: </b><span class="badge badge-pill badge-primary">${india.deaths.total} </span><br> 
-      <b> CASES TODAY: </b><span class="badge badge-pill badge-danger">${india.cases.new} </span><br> 
-      <b>DEATHS TODAY: </b><span class="badge badge-pill badge-danger">${india.deaths.new} </span><br> 
+      `<b>TOTAL CASES: </b><br><span class="badge badge-pill badge-primary badges"style="width:100px;font-size:25px">${india.cases.total} </span><br> 
+      <b> TOTAL DEATHS: </b><br><span class="badge badge-pill badge-primary badges" style="width:100px;font-size:25px">${india.deaths.total} </span><br> 
+      <b> CASES TODAY: </b><br><span class="badge badge-pill badge-danger badges" style="width:100px;font-size:25px">${india.cases.new} </span><br> 
+      <b>DEATHS TODAY: </b><br><span class="badge badge-pill badge-danger badges" style="width:100px;font-size:25px">${india.deaths.new} </span><br> 
       `  
     )
+    $('.badges').counterUp({
+     delay:20,time:1300
+
+
+    })
     tableh.children().remove()
     tableb.children().remove()
 
