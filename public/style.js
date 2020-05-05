@@ -1,4 +1,61 @@
 $(()=>{
+
+//graph
+  function creategraph(){
+
+    xvals=[]
+    yvals=[]
+
+  
+  var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://corona-virus-world-and-india-data.p.rapidapi.com/api_india_timeline",
+      "method": "GET",
+      "headers": {
+          "x-rapidapi-host": "corona-virus-world-and-india-data.p.rapidapi.com",
+          "x-rapidapi-key": "178daf1067msh9a869b74211b0b1p16b4f8jsna837fd521321"
+      }
+  }
+  
+  $.ajax(settings).done(function (response) {
+    
+     for(i=0;i<response.length;i++)
+     { if(i>response.length-31)
+       {xvals.push(response[i].date)
+       yvals.push(response[i].dailyconfirmed)
+       }
+
+     }
+        
+  var ctx = document.getElementById('myChart');
+  var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: xvals,
+          datasets: [{
+              label: 'Number Of Cases',
+              data: yvals,
+              backgroundColor:'red',
+              fill:false,
+              borderColor:'blue'
+              
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+  });  
+}
+
+//graph ends
   
   var country=$('#country');
   var btn=$('#btn');
@@ -163,6 +220,7 @@ country.focus(()=>{
       <b>DEATHS TODAY: </b><br><span class="badge badge-pill badge-danger badges" style="width:100px;font-size:25px">${india.deaths.new} </span><br> 
       `  
     )
+    creategraph()
    
     tableh.children().remove()
     tableb.children().remove()
