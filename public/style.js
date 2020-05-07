@@ -212,23 +212,56 @@ country.focus(()=>{
        
        `
      )
-
+      
      $('#indiadetails').html(
-      `<b>TOTAL CASES: </b><br><span class="badge badge-pill badge-primary badges"style="width:100px;font-size:25px">${india.cases.total} </span><br> 
-      <b> TOTAL DEATHS: </b><br><span class="badge badge-pill badge-primary badges" style="width:100px;font-size:25px">${india.deaths.total} </span><br> 
-      <b> CASES TODAY: </b><br><span class="badge badge-pill badge-danger badges" style="width:100px;font-size:25px">${india.cases.new} </span><br> 
-      <b>DEATHS TODAY: </b><br><span class="badge badge-pill badge-danger badges" style="width:100px;font-size:25px">${india.deaths.new} </span><br> 
+      `<b>TOTAL CASES: </b><br><span class="badge badge-pill badge-primary badges" target=${india.cases.total} style="width:100px;font-size:25px"></span><br> 
+      <b> TOTAL DEATHS: </b><br><span class="badge badge-pill badge-primary badges" target=${india.deaths.total} style="width:100px;font-size:25px"> 0</span><br> 
+      <b> CASES TODAY: </b><br><span class="badge badge-pill badge-danger "  style="width:100px;font-size:25px">${india.cases.new}</span><br> 
+      <b>DEATHS TODAY: </b><br><span class="badge badge-pill badge-danger " style="width:100px;font-size:25px">${india.deaths.new} </span><br> 
       `  
     )
-    creategraph()
+  badges=$('.badges').toArray()
+  badges.forEach((badge)=>{
+  
+    
+          
+    function updatecounter()
+    {   
+      final=+$(badge).attr('target')
+      val=+badge.innerText
+      increment=(0.002*final)
+       if(val<final)
+       {
+         newval=Math.floor(val+increment)
+       badge.innerText=`${newval}`
+       setTimeout(updatecounter,1)
+       }
+      else{ 
+
+        $(badge).html(`${final}`)
+
+      }
+
+
+    }
+   updatecounter()
+  
+   
+   
+   
+    
+
+   
+  })
+        creategraph()
    
     tableh.children().remove()
     tableb.children().remove()
 
      tableh.attr({"class":"table-secondary"})
-     tableh.append($('<tr>').append($('<th>').html('<b>Country<br><b> &#8645;').attr({"class":"sort"})).append($('<th>').html('<b>Total<br>Cases<b> &#8645;').attr({"class":"sort"})).append($('<th>').html('<b>Active<br>Cases<b> &#8645;').attr({"class":"sort"})).append($('<th>').html('<b>Total<br>Deaths<b> &#8645;').attr({"class":"sort"})).append($('<th>').html('<b>Cases<br>Today<b> &#8645;').attr({"class":"sort"})).append($('<th>').html('<b>Deaths<br>Today<b> &#8645;').attr({"class":"sort"})).append($('<th>').html('<b>Recovered <br><b> &#8645;').attr({"class":"sort"})))
+     tableh.append($('<tr>').append($('<th>').css({"position":"sticky","top":"0","background-color":"#66ff99"}).html('<b>Country<br><b> &#8645;').attr({"class":"sort"})).append($('<th>').css({"position":"sticky","top":"0","background-color":"#66ff99"}).html('<b>Total<br>Cases<b> &#8645;').attr({"class":"sort"})).append($('<th>').html('<b>Active<br>Cases<b> &#8645;').css({"position":"sticky","top":"0","background-color":"#66ff99"}).attr({"class":"sort"})).append($('<th>').css({"position":"sticky","top":"0","background-color":"#66ff99"}).html('<b>Total<br>Deaths<b> &#8645;').attr({"class":"sort"})).append($('<th>').css({"position":"sticky","top":"0","background-color":"#66ff99"}).html('<b>Cases<br>Today<b> &#8645;').attr({"class":"sort"})).append($('<th>').css({"position":"sticky","top":"0","background-color":"#66ff99"}).html('<b>Deaths<br>Today<b> &#8645;').attr({"class":"sort"})).append($('<th>').css({"position":"sticky","top":"0","background-color":"#66ff99"}).html('<b>Recovered <br><b> &#8645;').attr({"class":"sort"})))
     
-   $('#thead tr').attr({"class":"p-3 mb-2 bg-dark text-white"})
+  
    
    const arraydata=[];
     

@@ -15,7 +15,7 @@
 <body>
   
 
-    <div class="jumbotron jumbotron-fluid" >
+    <div class="jumbotron jumbotron-fluid" id="first" >
         <div class="container">
           <h1 class="display-4" style="text-align: center;">COVID-19 PANDEMIC</h1>
           <p class="lead" style="text-size-adjust:10px ;">
@@ -35,7 +35,7 @@
        
        
         
-        <div style="height: 830px;width: 100%; background-color:honeydew">
+        <div style="width: 100%; background-color:honeydew">
           <div style="text-align: center;font-size:40px ;font-weight: 900;">
               <span style="color: gray;">COVID19</span>
               <span style="color: blue;">INDIA</span>
@@ -46,37 +46,39 @@
             <span class="badge badge-dark" id="time"></span>
             <br>
           
-            <div id="indiadetails" class="p-3 mb-2 bg-warning text-dark" style="width:50%">
+            <div id="indiadetails" class="p-3 mb-2 bg-warning text-dark" style="width:100%;text-align: center;">
                  
     
             </div>
-            <canvas id="myChart" ></canvas>
+            
+            
             <br>
-            <div style="text-align: center;">
-         
-         
+        
+            
+            
+        </div>
+        <canvas id="myChart" > </canvas>
+        <div style="text-align: center;">
+          
          <span style="color: darkred;font-size:25px;font-weight: 900;">Cases</span>
          <span style="color:gray;font-size:25px;font-weight:900;">  Last 30 Days</span>
         
-        </div>
-            
-            
-        </div>
+          </div>
        
 
    <br>
    <br>
-   <div class="jumbotron" style="height:600px;overflow:scroll;">
+   <div class="jumbotron" >
    
-      <div class="table-responsive">
+      <div style="height:400px;overflow: scroll;" >
           <table class="table table-hover">
-           <thead class="p-3 mb-2 bg-dark text-white">
-           <tr>
-             <th>State</th>
-             <th>C</th>
-             <th>A</th>
-             <th style="color: red;">D</th>
-             <th  style="color:green">R</th>
+           <thead>
+           <tr  >
+             <th   style="position: sticky;top:0;background-color: #66ff99;">State</th>
+             <th  style="position: sticky;top:0;background-color:#66ff99" >C</th>
+             <th  style="position: sticky;top:0;background-color: #66ff99;color: blue;"  >A</th>
+             <th  style="position: sticky;top:0;background-color: #66ff99;color: red; "  >D</th>
+             <th   style="position: sticky;top:0;background-color: #66ff99;color:green;"  >R</th>
            </tr>
       
 
@@ -112,8 +114,8 @@
 
 
     </div>
-    <div class="table-responsive">
-      <div></div>
+    <div  style="height: 500px;overflow:scroll;">
+      
        <table class="table table-hover" id="data">
       <thead id="thead">
        
@@ -128,7 +130,17 @@
 
     </div>
 
+   <br>
+   <br>
+   <br>
+   <div style="text-align: center; margin-bottom: 15px;">
 
+      <img src="https://img.icons8.com/nolan/64/circled-up-2.png" width="40px"/>
+     <a href="#first">
+        <span>Scroll Back to Top!!!!!</span>
+     </a> 
+   </div>
+  
 
 
    
