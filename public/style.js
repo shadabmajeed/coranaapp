@@ -214,10 +214,10 @@ country.focus(()=>{
      )
       
      $('#indiadetails').html(
-      `<b>TOTAL CASES: </b><br><span class="badge badge-pill badge-primary badges" target=${india.cases.total} style="width:100px;font-size:25px"></span><br> 
-      <b> TOTAL DEATHS: </b><br><span class="badge badge-pill badge-primary badges" target=${india.deaths.total} style="width:100px;font-size:25px"> 0</span><br> 
-      <b> CASES TODAY: </b><br><span class="badge badge-pill badge-danger "  style="width:100px;font-size:25px">${india.cases.new}</span><br> 
-      <b>DEATHS TODAY: </b><br><span class="badge badge-pill badge-danger " style="width:100px;font-size:25px">${india.deaths.new} </span><br> 
+      `<b>TOTAL CASES: </b><br><span class="badge badge-pill badge-primary badges" target=${india.cases.total} style="width:160px;font-size:25px"></span><br> 
+      <b> TOTAL DEATHS: </b><br><span class="badge badge-pill badge-primary badges" target=${india.deaths.total} style="width:160px;font-size:25px"> 0</span><br> 
+      <b> CASES TODAY: </b><br><span class="badge badge-pill badge-danger "  style="width:160px;font-size:25px">${india.cases.new}</span><br> 
+      <b>DEATHS TODAY: </b><br><span class="badge badge-pill badge-danger " style="width:160px;font-size:25px">${india.deaths.new} </span><br> 
       `  
     )
   badges=$('.badges').toArray()
